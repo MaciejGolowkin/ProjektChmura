@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-
-
+  isDeletable:boolean=false;
+  isAddOn=true;
 
   title = 'ProjektChmura';
   lat: number = 51.678418;
@@ -30,9 +31,20 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
+  Remove()
+  {
+    this.isDeletable=true;
+    this.isAddOn=false;
+  }
+
+  Add()
+  {
+    this.isDeletable=false;
+    this.isAddOn=true;
+  }
 
   addMarker(lat: number, lng: number) {
-    this.markers.push({ lat, lng, alpha: 0.4 });
+    if(this.isAddOn==true) this.markers.push({ lat, lng, alpha: 0.4 });
   }
 
   max(coordType: 'lat' | 'lng'): number {
@@ -48,6 +60,19 @@ export class MapComponent implements OnInit {
       lat: event.latitude,
       lng: event.longitude
     };
+
+   if(this.isDeletable==true) 
+      for( var i = 0; i < this.markers.length; i++){ 
+      
+      let markerItem= this.markers[i];
+
+      if ( markerItem.lat == this.selectedMarker.lat && markerItem.lng == this.selectedMarker.lng ) {
+        this.markers.splice(i, 1); 
+      }
+   }
+   
+
+
   }
 
 }
