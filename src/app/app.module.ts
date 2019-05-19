@@ -17,6 +17,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { ShowMapWindowComponent } from './Components/show-map-window/show-map-window.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SettingsComponent } from './Components/settings/settings.component';
     FilmsComponent,
     TripsComponent,
     SettingsComponent,
+    ShowMapWindowComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,6 +40,7 @@ import { SettingsComponent } from './Components/settings/settings.component';
     BrowserModule,
     CommonModule,
     NgbModule,
+    NgbModule.forRoot(),
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: ''

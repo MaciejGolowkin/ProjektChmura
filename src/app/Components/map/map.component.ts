@@ -1,6 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 
+
+import { google } from '@agm/core/services/google-maps-types';
+import { ShowMapWindowComponent } from '../show-map-window/show-map-window.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -10,6 +15,8 @@ export class MapComponent implements OnInit {
 
   isDeletable:boolean=false;
   isAddOn=true;
+  
+  
 
   title = 'ProjektChmura';
   lat: number = 51.678418;
@@ -26,7 +33,9 @@ export class MapComponent implements OnInit {
     { lat: 47.92393, lng: 78.58339, alpha: 1 }
   ];
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
   }
@@ -45,6 +54,7 @@ export class MapComponent implements OnInit {
 
   addMarker(lat: number, lng: number) {
     if(this.isAddOn==true) this.markers.push({ lat, lng, alpha: 0.4 });
+    //this.openFormModal();
   }
 
   max(coordType: 'lat' | 'lng'): number {
@@ -61,6 +71,8 @@ export class MapComponent implements OnInit {
       lng: event.longitude
     };
 
+
+
    if(this.isDeletable==true) 
       for( var i = 0; i < this.markers.length; i++){ 
       
@@ -71,8 +83,18 @@ export class MapComponent implements OnInit {
       }
    }
    
+   
 
+  }
 
+  openFormModal() {
+    const modalRef = this.modalService.open(ShowMapWindowComponent);
+    
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }
