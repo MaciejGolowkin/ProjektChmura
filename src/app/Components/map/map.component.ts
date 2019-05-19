@@ -54,7 +54,7 @@ export class MapComponent implements OnInit {
 
   addMarker(lat: number, lng: number) {
     if(this.isAddOn==true) this.markers.push({ lat, lng, alpha: 0.4 });
-    //this.openFormModal();
+    this.openFormModal();
   }
 
   max(coordType: 'lat' | 'lng'): number {

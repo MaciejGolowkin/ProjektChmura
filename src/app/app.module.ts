@@ -48,6 +48,9 @@ import { ShowMapWindowComponent } from './Components/show-map-window/show-map-wi
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
+  entryComponents: [
+    ShowMapWindowComponent
+  ],
   
   bootstrap: [AppComponent]
 })
