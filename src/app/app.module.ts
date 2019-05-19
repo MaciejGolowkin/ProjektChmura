@@ -18,6 +18,8 @@ import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { ShowMapWindowComponent } from './Components/show-map-window/show-map-window.component';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { ShowMapWindowComponent } from './Components/show-map-window/show-map-wi
   ],
   imports: [
     BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,
     NoopAnimationsModule,
     MDBBootstrapModule.forRoot(),
     MatIconModule,
