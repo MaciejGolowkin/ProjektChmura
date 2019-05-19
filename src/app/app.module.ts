@@ -17,6 +17,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SettingsComponent } from './Components/settings/settings.component';
     FilmsComponent,
     TripsComponent,
     SettingsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserAnimationsModule,
