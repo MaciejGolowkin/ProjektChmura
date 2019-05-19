@@ -2,7 +2,14 @@
   <h4 class="modal-title">Wybrano tag</h4>
 </div>
 <div class="modal-body">
-  <p>My modal content</p>
+  Nazwij tag: <input type="text" name="LastName" value="Mouse">
+
+
+  <div class="autocomplete" style="width:300px;">
+      <input id="myInput" type="text" name="myCountry" placeholder="Country">
+    </div>  
+
+
 </div>
 <div class="modal-footer">
 
@@ -10,7 +17,7 @@
         ok!
       </button>
 
-  <button class="btn btn-warning" (click)="activeModal.dismiss('Close Clicked')">
-    Anuluj
-  </button>
+    <button class="btn btn-warning" (click)="activeModal.dismiss('Close Clicked')">
+      Anuluj
+    </button>
 </div>
