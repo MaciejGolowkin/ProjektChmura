@@ -18,6 +18,7 @@ import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { ImageFilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserProfileComponent } from './Components/user-profile/user-profile.com
     TripsComponent,
     SettingsComponent,
     UserProfileComponent,
+    ImageFilterPipe,
   ],
   imports: [
     BrowserAnimationsModule,
