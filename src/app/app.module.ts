@@ -22,6 +22,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { ImageFilterPipe } from './pipes/filter.pipe';
+import { LogPageComponent } from './Components/log-page/log-page.component';
+import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { ImageFilterPipe } from './pipes/filter.pipe';
     ShowMapWindowComponent,
     UserProfileComponent,
     ImageFilterPipe,
+    LogPageComponent,
+    RegPanelComponent,
   ],
   imports: [
     BrowserAnimationsModule,
