@@ -7,6 +7,8 @@ import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
     { path: 'share',component: ShareComponent },
     { path: 'settings',component: SettingsComponent },
     { path: 'user-profile',component: UserProfileComponent },
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path : 'register', component : RegisterComponent},
+    { path : 'login', component : LoginComponent},
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
 
 
 ];

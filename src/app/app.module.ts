@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { MapComponent } from './Components/map/map.component';
@@ -12,13 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ShareComponent } from './Components/share/share.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatCardModule } from '@angular/material';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { ImageFilterPipe } from './pipes/filter.pipe';
+import { RegisterComponent } from './Components/register/register.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ImageFilterPipe } from './pipes/filter.pipe';
     SettingsComponent,
     UserProfileComponent,
     ImageFilterPipe,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,7 +46,10 @@ import { ImageFilterPipe } from './pipes/filter.pipe';
     BrowserModule,
     CommonModule,
     NgbModule,
+    MatFormFieldModule,
+    MatCardModule,
     FormsModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
