@@ -90,8 +90,7 @@ export class MapComponent implements OnInit {
 
     this.selectedMarker = {
       lat: event.latitude,
-      lng: event.longitude
-      
+      lng: event.longitude 
     };
     //  this.lat=event.latitude;
     //  this.lng=event.longitude;
