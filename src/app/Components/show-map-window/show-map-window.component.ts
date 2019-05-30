@@ -4,6 +4,7 @@ import { }  from '@angular/material';
 import { PicturesService } from 'src/app/services/pictures.service';
 import { MarkerServiceService } from 'src/app/services/marker-service.service';
 import { MarkerTag } from 'src/Classes/marker';
+import { MapComponent } from '../map/map.component';
 
 
 @Component({
@@ -12,10 +13,10 @@ import { MarkerTag } from 'src/Classes/marker';
   styleUrls: ['./show-map-window.component.css']
 })
 export class ShowMapWindowComponent implements OnInit {
-
+  RootComponent: MapComponent;
   selectedFile: File;
 
-  marker:MarkerTag;
+  marker:MarkerTag= new MarkerTag();
 
   tag:string;
 
@@ -47,11 +48,12 @@ export class ShowMapWindowComponent implements OnInit {
   }
 
   createtag()
-  {
-    this.markerService.marker.tag=this.tag;
-    this.markerService.marker.description=this.description;
-    this.markerService.addActiveToList();
-    console.log(this.markerService);
+  { this.marker.latitude = this.RootComponent.lat;
+    this.marker.longitude = this.RootComponent.lng;
+    this.marker.tag=this.tag;
+    this.marker.description=this.description;
+    this.RootComponent.markers.push(this.marker);
+    console.log(this.RootComponent.markers);
   }
 
   cancel()

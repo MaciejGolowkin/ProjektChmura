@@ -1,10 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 
 
 import { google, Marker } from '@agm/core/services/google-maps-types';
 import { ShowMapWindowComponent } from '../show-map-window/show-map-window.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { MarkerServiceService } from 'src/app/services/marker-service.service';
 import { MarkerTag } from 'src/Classes/marker';
 
@@ -22,19 +22,10 @@ export class MapComponent implements OnInit {
   
 
   title = 'ProjektChmura';
-   lat: number = 51.678418;
-   lng: number = 7.809007;
+  lat: number = 51.678418;
+  lng: number = 7.809007;
   selectedMarker;
 
-  // markers = [
-  //   // These are all just random coordinates from https://www.random.org/geographic-coordinates/
-  //   { lat: 22.33159, lng: 105.63233, alpha: 1 },
-  //   { lat: 7.92658, lng: -12.05228, alpha: 1 },
-  //   { lat: 48.75606, lng: -118.859, alpha: 1 },
-  //   { lat: 5.19334, lng: -67.03352, alpha: 1 },
-  //   { lat: 12.09407, lng: 26.31618, alpha: 1 },
-  //   { lat: 47.92393, lng: 78.58339, alpha: 1 }
-  // ];
 
   markers:MarkerTag[]=[] ;
 
@@ -70,10 +61,11 @@ export class MapComponent implements OnInit {
   addMarker(lat: number, lng: number) {
     if(this.task=="Add") 
       {
-        this.markerService.marker.latitude=lat;
-        this.markerService.marker.longitude=lng;
+        this.lat=lat;
+        this.lng=lng;
       //this.markers.push({ lat, lng, alpha: 0.4 }); 
-      this.openFormModal();}
+      this.openDialog(true);
+    }
     
   }
 
@@ -87,28 +79,41 @@ export class MapComponent implements OnInit {
 
 
   selectMarker(event) {
+  
+   if(this.task=="Remove"){
 
-    this.selectedMarker = {
-      lat: event.latitude,
-      lng: event.longitude
+    this.markers = this.markers.filter(function( markers ) {
+      return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
+    });
+    // this.markers.filter( (markers) => {
+    //   console.log(markers)
+    //   this.markers = markers.latitude !== event.latitude && markers.longitude !== event.longitude;
+    //   }
+    // }
+  }
+    
+      // for( var i = 0; i < this.markers.length; i++){ 
       
-    };
-    //  this.lat=event.latitude;
-    //  this.lng=event.longitude;
-
-
-   if(this.task=="Remove") 
-      for( var i = 0; i < this.markers.length; i++){ 
-      
-      let markerItem= this.markers[i];
-
-      if ( markerItem.latitude == this.selectedMarker.lat && markerItem == this.selectedMarker.lng ) {
-        this.markers.splice(i, 1); 
-      }
-   }
-   
-   
-
+      // let markerItem= this.markers[i];
+      //   console.log(event.latitude,event.longitude)
+      // if ( markerItem.latitude == event.latitude && markerItem == event.longitude ) {
+      //   this.markers.splice(i, 1); 
+      //   console.log("YES")
+      // }
+    
+  //  }
+  public openDialog(visible: boolean): ShowMapWindowComponent {
+    let options: NgbModalOptions = {}
+    // options.size += "m";
+    options.windowClass = "bosch-external-redirection-dialog";
+    if (!visible) {
+      options.windowClass += " hidden";
+    }
+    let modalRef = this.modalService.open(ShowMapWindowComponent, options);
+    let component = modalRef.componentInstance;
+    component.Visible = visible;
+    component.RootComponent = this;
+    return component;
   }
 
   openFormModal() {
