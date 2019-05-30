@@ -35,8 +35,6 @@ export class ShowMapWindowComponent implements OnInit {
 
   closeModal() {
     this.activeModal.close('Modal Closed');
-    
-    
   }
   
   onFileChanged(event) {

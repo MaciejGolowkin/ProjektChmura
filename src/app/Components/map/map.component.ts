@@ -65,8 +65,7 @@ export class MapComponent implements OnInit {
         this.lng=lng;
       //this.markers.push({ lat, lng, alpha: 0.4 }); 
       this.openDialog(true);
-    }
-    
+    }  
   }
 
   max(coordType: 'lat' | 'lng'): number {
@@ -80,17 +79,13 @@ export class MapComponent implements OnInit {
 
   selectMarker(event) {
   
-   if(this.task=="Remove"){
-
-    this.markers = this.markers.filter(function( markers ) {
-      return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
-    });
-    // this.markers.filter( (markers) => {
-    //   console.log(markers)
-    //   this.markers = markers.latitude !== event.latitude && markers.longitude !== event.longitude;
-    //   }
-    // }
+    if(this.task=="Remove"){
+      this.markers = this.markers.filter(function( markers ) {
+        return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
+      });
+    }
   }
+<<<<<<< Updated upstream
     
       // for( var i = 0; i < this.markers.length; i++){ 
       
@@ -102,6 +97,9 @@ export class MapComponent implements OnInit {
       // }
     
    }
+=======
+
+>>>>>>> Stashed changes
   public openDialog(visible: boolean): ShowMapWindowComponent {
     let options: NgbModalOptions = {}
     // options.size += "m";
@@ -114,17 +112,6 @@ export class MapComponent implements OnInit {
     component.Visible = visible;
     component.RootComponent = this;
     return component;
-  }
-
-  openFormModal() {
-    const modalRef = this.modalService.open(ShowMapWindowComponent);
-    
-    //this.markerService.setActiveMarker(this.lng,this.lat);
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
   }
 
 }
