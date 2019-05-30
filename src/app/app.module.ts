@@ -68,8 +68,7 @@ import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
   ],
   providers: [],
   entryComponents: [
-    FilmComponent
-  ],
+    FilmComponent,
     ShowMapWindowComponent
   ],
   
