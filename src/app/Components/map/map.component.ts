@@ -85,21 +85,6 @@ export class MapComponent implements OnInit {
       });
     }
   }
-<<<<<<< Updated upstream
-    
-      // for( var i = 0; i < this.markers.length; i++){ 
-      
-      // let markerItem= this.markers[i];
-      //   console.log(event.latitude,event.longitude)
-      // if ( markerItem.latitude == event.latitude && markerItem == event.longitude ) {
-      //   this.markers.splice(i, 1); 
-      //   console.log("YES")
-      // }
-    
-   }
-=======
-
->>>>>>> Stashed changes
   public openDialog(visible: boolean): ShowMapWindowComponent {
     let options: NgbModalOptions = {}
     // options.size += "m";
