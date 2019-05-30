@@ -101,7 +101,7 @@ export class MapComponent implements OnInit {
       //   console.log("YES")
       // }
     
-  //  }
+   }
   public openDialog(visible: boolean): ShowMapWindowComponent {
     let options: NgbModalOptions = {}
     // options.size += "m";
